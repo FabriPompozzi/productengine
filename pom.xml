@@ -11,8 +11,8 @@
 	<groupId>com.api</groupId>
 	<artifactId>productengine</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name></name>
+    <description></description>
 	<url/>
 	<licenses>
 		<license/>
