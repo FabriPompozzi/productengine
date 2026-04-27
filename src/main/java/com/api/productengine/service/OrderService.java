@@ -1,6 +1,7 @@
 package com.api.productengine.service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,12 @@ public class OrderService {
 
         // 2. Validar existencias (stock)
         if (product.getStock() <= 0) {
-            throw new RuntimeException("El producto no tiene stock disponible");
+            throw new RuntimeException("No hay stock disponible para el producto: " + product.getName());
         }
 
         // 3. Validar que el saldo sea mayor a 0
         if (product.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("La orden debe tener un saldo mayor a $0");
+            throw new RuntimeException("El precio del producto debe ser mayor a $0");
         }
 
         // 4. Lógica de negocio: Restar stock
@@ -44,5 +45,7 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
-
+    public List<Order> findAll() {
+        return orderRepository.findAll();
+    }
 }

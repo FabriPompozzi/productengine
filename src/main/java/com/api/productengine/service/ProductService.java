@@ -16,7 +16,6 @@ public class ProductService {
     }
 
     public Product create(Product product) {
-        product.setName("Garbage"+"545645645");
         return repository.save(product);
     }
 
